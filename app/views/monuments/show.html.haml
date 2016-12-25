@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @monument.name
+%p
+  %b Description:
+  = @monument.description
+
+= link_to 'Edit', edit_monument_path(@monument)
+\|
+= link_to 'Back', monuments_path
