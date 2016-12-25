@@ -43,6 +43,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
+gem 'devise-i18n'
 
 
 
