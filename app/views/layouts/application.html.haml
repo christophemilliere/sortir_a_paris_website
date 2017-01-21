@@ -9,33 +9,29 @@
     .navbar-wagon
       / Logo
       %a.navbar-wagon-brand{:href => "/"}
-        %img{:src => "images/lewagon.png"}/
+        Sortir à Paris
       / Right Navigation
       .navbar-wagon-right.hidden-xs-down.hidden-md-down
         / Text link
         %a.navbar-wagon-item.navbar-wagon-link{:href => ""} Contact
-        / Text link
-        %a.navbar-wagon-item.navbar-wagon-link{:href => ""} Team
+        = link_to 'Listes des momuments ', monuments_path, class: 'navbar-wagon-item navbar-wagon-link'
         / Notification link
-        %a.navbar-wagon-item.navbar-wagon-link{:href => ""}
-          .badge-container
-            %i.fa.fa-envelope-o
-            .badge.badge-blue 3
+        -# %a.navbar-wagon-item.navbar-wagon-link{:href => ""}
+        -#   .badge-container
+        -#     %i.fa.fa-envelope-o
+        -#     .badge.badge-blue 3
         - if user_signed_in?
           / Profile picture and dropdown
           .navbar-wagon-item
             .dropdown
-              %img#navbar-wagon-menu.avatar.dropdown-toggle{"data-toggle" => "dropdown", :src => "http://placehold.it/50x50"}/
+              %img#navbar-wagon-menu.avatar.dropdown-toggle{"data-toggle" => "dropdown", :src => "#{current_user.gravatar_url}"}/
               %ul.dropdown-menu.dropdown-menu-right.navbar-wagon-dropdown-menu
                 %li
-                  %a{:href => "#"} Profile
-                %li
-                  %a{:href => "#"} Dashboard
+                  = link_to 'Profile',  edit_user_registration_path(current_user.id)
                 %li
                   = link_to 'Déconnecter', destroy_user_session_path, method: :delete
-                  %a{:href => "#"} Déconnecter
 
-          %a.navbar-wagon-item.navbar-wagon-button.btn{:href => ""} Post stuff
+          = link_to 'Ajouter un monument', new_monument_path, class: 'btn btn-outline-primary'
         - else
           = link_to 'Connecter', new_user_session_path, class: 'navbar-wagon-item navbar-wagon-link'
 
@@ -50,4 +46,5 @@
               %a{:href => "#"} Other one
             %li
               %a{:href => "#"} Other one
-    = yield
+    .container
+      = yield

@@ -4,6 +4,10 @@
   .form-inputs
     = f.input :name
     = f.input :description
-
+    = f.select :category_id, Category.pluck(:name,:id), prompt: "Choisir une catégorie"
+    = f.input :url
+    = f.input :address
+    = f.input :zip_code
+    = f.input :city
   .form-actions
     = f.button :submit

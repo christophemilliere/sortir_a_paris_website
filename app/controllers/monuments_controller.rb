@@ -4,7 +4,7 @@ class MonumentsController < ApplicationController
   # GET /monuments
   # GET /monuments.json
   def index
-    @monuments = Monument.all
+    @monuments = Monument.includes(:user, :category).order(created_at: 'ASC').all
   end
 
   # GET /monuments/1
@@ -25,6 +25,7 @@ class MonumentsController < ApplicationController
   # POST /monuments.json
   def create
     @monument = Monument.new(monument_params)
+    @monument.user_id = current_user.id
 
     respond_to do |format|
       if @monument.save
@@ -69,6 +70,6 @@ class MonumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def monument_params
-      params.require(:monument).permit(:name, :description)
+      params.require(:monument).permit(:name, :description, :url, :user_id, :address, :city, :zip_code, :category_id)
     end
 end

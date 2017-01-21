@@ -1,0 +1,14 @@
+%tr
+  %td= monument.name
+  %td= monument.description
+  - if monument.category
+    %td
+      .tag.tag-success
+        = monument.category_name
+  - else
+    %td
+      .tag.tag-danger
+        Pas de categorie
+  %td= link_to 'Show', monument, class: 'btn btn-outline-primary'
+  %td= link_to 'Edit', edit_monument_path(monument), class: 'btn btn-outline-success'
+  %td= link_to 'Destroy', monument, :data => { :confirm => 'Are you sure?', method: :delete }, class: 'btn btn-outline-danger'

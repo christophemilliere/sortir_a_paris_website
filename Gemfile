@@ -44,6 +44,16 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'devise-i18n'
+gem 'gravtastic'
+gem 'geokit', '~> 1.10'
+
+#Add gem for api
+gem "grape"
+gem "grape-swagger"
+gem "grape-swagger-rails"
+
+# Add serializers
+gem "grape-active_model_serializers"
 
 
 

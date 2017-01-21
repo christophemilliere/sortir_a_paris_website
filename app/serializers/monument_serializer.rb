@@ -17,24 +17,18 @@
 #  category_id :integer
 #
 
-class Monument < ApplicationRecord
+class MonumentSerializer < ActiveModel::Serializer
+  attributes :id, :name, :description, :url, :address, :full_address, :location
   belongs_to :user
-  belongs_to :category
-
-  validates :user_id, presence: true
-
-  before_create :set_longitude_latitude
-  before_update :set_longitude_latitude
-
-  delegate :name, to: :category, prefix: true, allow_nil: true
 
   def full_address
-    "#{ address}, #{city} #{zip_code}"
+  "#{object.address} #{object.zip_code} #{object.city}"
   end
 
-  def set_longitude_latitude
-    a = Geokit::Geocoders::GoogleGeocoder.geocode full_address
-    self.lat = a.lat
-    self.lng = a.lng
+  def location
+    {
+      lng: object.lng,
+      lat: object.lat
+    }
   end
 end

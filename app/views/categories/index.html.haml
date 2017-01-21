@@ -1,0 +1,22 @@
+%h1 Listing gs
+
+%table
+  %thead
+    %tr
+      %th Category
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @categories.each do |g|
+      %tr
+        %td= g.name
+        %td= link_to 'Show', g
+        %td= link_to 'Edit', edit_category_path(g)
+        %td= link_to 'Destroy', g, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New G', new_category_path

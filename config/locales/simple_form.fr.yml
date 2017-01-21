@@ -1,9 +1,9 @@
-en:
+fr:
   helpers:
     submit:
       monument:
-        create: "Create %{model}"
-        update: "Update %{model}"
+        create: "Crée un %{model}"
+        update: "Modification %{model}"
   simple_form:
     "yes": 'Yes'
     "no": 'No'

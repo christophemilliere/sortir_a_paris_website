@@ -1,23 +1,14 @@
 %h1 Listing monuments
 
-%table
+%table.table.table-bordered
   %thead
     %tr
-      %th Name
+      %th Nom du monument
       %th Description
-      %th
-      %th
-      %th
+      %th Categories
+      %th Voir
+      %th Editer
+      %th Editer
 
   %tbody
-    - @monuments.each do |monument|
-      %tr
-        %td= monument.name
-        %td= monument.description
-        %td= link_to 'Show', monument
-        %td= link_to 'Edit', edit_monument_path(monument)
-        %td= link_to 'Destroy', monument, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Monument', new_monument_path
+    = render @monuments
