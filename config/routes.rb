@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   # API+API Documentation
   mount Api::Sap::Api, at: "api"
   mount GrapeSwaggerRails::Engine, at: "api/documentation"
+  if Rails.env.development?
+    mount Localtower::Engine, at: "localtower"
+  end
 end
