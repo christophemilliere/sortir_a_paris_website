@@ -19,7 +19,7 @@
 
 class MonumentSerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :url, :address, :full_address, :location
-  belongs_to :user
+  # belongs_to :user
 
   def full_address
   "#{object.address} #{object.zip_code} #{object.city}"

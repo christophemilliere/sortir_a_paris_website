@@ -20,6 +20,7 @@
 class Monument < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  belongs_to :town
 
   validates :user_id, presence: true
 
@@ -27,6 +28,7 @@ class Monument < ApplicationRecord
   before_update :set_longitude_latitude
 
   delegate :name, to: :category, prefix: true, allow_nil: true
+  delegate :name, to: :town, prefix: true, allow_nil: true
 
   def full_address
     "#{ address}, #{city} #{zip_code}"

@@ -7,7 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
   user = User.create!(email: "christophemilliere93@gmail.com", password: "12345678", password_confirmation: "12345678")
+  towns = %w(Paris Versailles)
+  towns.each do |c|
+    Town.create(name: c)
+  end
 
+town = Town.find_by(name: 'Paris')
 
 monuments = [{
     name: "La tour Eiffel",
@@ -19,7 +24,7 @@ monuments = [{
     city: "paris",
     zip_code: 75007,
     lat: 48.8588871,
-    lng: 2.2944861
+    lng: 2.2944861,
     },
     {
       name: "Arc de Triomphe",
@@ -137,6 +142,7 @@ monuments = [{
                       address: m[:address],
                       city: m[:city],
                       zip_code: m[:zip_code],
-                      user: user
+                      user: user,
+                      town_id: town.id,
                       )
     end
