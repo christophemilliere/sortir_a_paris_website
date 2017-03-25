@@ -39,6 +39,7 @@ module V1
 
     #Mount our ressources
     mount V1::Monuments
+    mount V1::Towns
     add_swagger_documentation(
       api_version: "api/v1",
       hide_documentation_path: true,
