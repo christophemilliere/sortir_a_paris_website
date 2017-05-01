@@ -26,6 +26,7 @@ module SortirAParis
     config.time_zone = 'Paris'
     config.active_record.default_timezone = :local
     config.active_record.raise_in_transactional_callbacks = true
+    config.enforce_available_locales = false
     config.i18n.available_locales = [:en, :fr, :ja]
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
