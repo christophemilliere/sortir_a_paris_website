@@ -3,7 +3,8 @@ module V1
     resource :towns do
       desc "Return list cities."
       get  do
-        Town.all
+        I18n.locale = params[:locale]
+        Town.where.not(name: nil)
       end
     end
   end

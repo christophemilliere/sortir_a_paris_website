@@ -3,7 +3,8 @@ module V1
     resource :monuments do
       desc "Return list monuments."
       get  do
-        Monument.all
+        I18n.locale = params[:locale]
+        Monument.where.not(name: nil)
       end
 
       desc "Return monument."
@@ -11,6 +12,7 @@ module V1
         requires :id, type: Integer, desc: "Monument id"
       end
       get ':id'  do
+        I18n.locale = params[:locale]
         error!('Not found', 404) unless Monument.find_by(id: params[:id])
         Monument.find_by(id: params[:id])
       end

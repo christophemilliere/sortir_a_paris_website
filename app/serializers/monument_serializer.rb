@@ -18,6 +18,7 @@
 #
 
 class MonumentSerializer < ActiveModel::Serializer
+  # globalize_accessors :locales => I18n.available_locales, :attributes => [:description]
   attributes :id, :name, :description, :url, :address, :full_address, :location
   # belongs_to :user
 

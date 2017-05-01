@@ -1,10 +1,12 @@
+= I18n.locale
 = simple_form_for(monument) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
     = f.input :description
-    = f.select :category_id, Category.pluck(:name,:id), prompt: "Choisir une catégorie"
+    -# = f.select :category_id, Category.pluck(:name,:id), prompt: "Choisir une catégorie"
+    = f.select :town_id, Town.where.not(name: nil).pluck(:name,:id), prompt: "Choisir une ville"
     = f.input :url
     = f.input :address
     = f.input :zip_code

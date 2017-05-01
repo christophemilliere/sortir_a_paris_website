@@ -4,7 +4,7 @@ class MonumentsController < ApplicationController
   # GET /monuments
   # GET /monuments.json
   def index
-    @monuments = Monument.includes(:user, :category).order(created_at: 'ASC').all
+    @monuments = Monument.includes(:user, :category).order(created_at: 'ASC').where.not(name: nil)
   end
 
   # GET /monuments/1

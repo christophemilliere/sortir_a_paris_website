@@ -10,20 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325210717) do
+ActiveRecord::Schema.define(version: 20170417204945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "monuments", force: :cascade do |t|
+  create_table "category_translations", force: :cascade do |t|
+    t.integer  "category_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.index ["category_id"], name: "index_category_translations_on_category_id", using: :btree
+    t.index ["locale"], name: "index_category_translations_on_locale", using: :btree
+  end
+
+  create_table "monument_translations", force: :cascade do |t|
+    t.integer  "monument_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "name"
     t.text     "description"
+    t.index ["locale"], name: "index_monument_translations_on_locale", using: :btree
+    t.index ["monument_id"], name: "index_monument_translations_on_monument_id", using: :btree
+  end
+
+  create_table "monuments", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "url"
@@ -40,8 +58,17 @@ ActiveRecord::Schema.define(version: 20170325210717) do
     t.index ["user_id"], name: "index_monuments_on_user_id", using: :btree
   end
 
-  create_table "towns", force: :cascade do |t|
+  create_table "town_translations", force: :cascade do |t|
+    t.integer  "town_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "name"
+    t.index ["locale"], name: "index_town_translations_on_locale", using: :btree
+    t.index ["town_id"], name: "index_town_translations_on_town_id", using: :btree
+  end
+
+  create_table "towns", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

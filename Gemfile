@@ -46,6 +46,10 @@ gem "font-awesome-rails"
 gem 'devise-i18n'
 gem 'gravtastic'
 gem 'geokit', '~> 1.10'
+gem 'globalize', git: 'https://github.com/globalize/globalize'
+gem 'globalize-accessors', '~> 0.2.1'
+
+gem 'activemodel-serializers-xml'
 
 #Add gem for api
 gem "grape"

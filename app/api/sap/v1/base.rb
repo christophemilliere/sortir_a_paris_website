@@ -4,6 +4,7 @@ module V1
   class Base < Grape::API
     version "v1", using: :path
     format :json
+    content_type :json, "application/json;charset=utf-8"
     formatter :json, Grape::Formatter::ActiveModelSerializers
     # formatter :json, Grape::Formatter::ActiveModelSerializers
 

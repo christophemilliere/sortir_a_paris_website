@@ -22,10 +22,11 @@ module SortirAParis
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.i18n.default_locale = :fr
+    config.i18n.default_locale = :en
     config.time_zone = 'Paris'
     config.active_record.default_timezone = :local
     config.active_record.raise_in_transactional_callbacks = true
+    config.i18n.available_locales = [:en, :fr, :ja]
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]

@@ -21,6 +21,7 @@ class Monument < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :town
+  translates :name, :description, touch: true
 
   validates :user_id, presence: true
 
