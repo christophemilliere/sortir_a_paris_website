@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170417204945) do
     t.datetime "updated_at",  null: false
     t.string   "name"
     t.text     "description"
+    t.string   "url"
     t.index ["locale"], name: "index_monument_translations_on_locale", using: :btree
     t.index ["monument_id"], name: "index_monument_translations_on_monument_id", using: :btree
   end
@@ -44,7 +45,6 @@ ActiveRecord::Schema.define(version: 20170417204945) do
   create_table "monuments", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "url"
     t.integer  "user_id"
     t.string   "address"
     t.string   "city"

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     devise_for :users
     resources :categories
     resources :monuments
+    resources :towns
     root 'pages#index'
 
     # API+API Documentation

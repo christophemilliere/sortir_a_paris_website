@@ -304,7 +304,7 @@ desc "create monument multi language"
 		# 		Gensのダームス、ガードルーム、キッチン。ほぼ宮殿の全体のより低いレベルは、15世紀の刑務所に変換しました。
 		# 		あなたは（特に、マリー・アントワネットのもの）を訪問し、革命の思い出を発見することができダンジョン。",
 		# 		url: "http://www.paris-conciergerie.fr/en/",
-		# 		address: "2 boulevard du Palais",
+		# 		address: "2 boulevard du Palais",z
 		# 		city: "Paris",
 		# 		zip_code: 75001,
 		# 		lat: 48.8554985,

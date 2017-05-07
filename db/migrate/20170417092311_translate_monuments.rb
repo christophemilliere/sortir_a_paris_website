@@ -3,7 +3,8 @@ class TranslateMonuments < ActiveRecord::Migration[5.0]
     I18n.with_locale(:en) do
       Monument.create_translation_table!({
         :name => :string,
-        :description => :text
+        :description => :text,
+        :url => :string
       }, {
         :migrate_data => true,
         :remove_source_columns => true

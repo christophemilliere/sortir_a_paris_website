@@ -48,6 +48,7 @@ gem 'gravtastic'
 gem 'geokit', '~> 1.10'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'globalize-accessors', '~> 0.2.1'
+gem 'http_accept_language'
 
 gem 'activemodel-serializers-xml'
 

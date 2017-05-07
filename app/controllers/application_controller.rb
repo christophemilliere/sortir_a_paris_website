@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include HttpAcceptLanguage::AutoLocale
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_filter :set_locale
@@ -6,12 +7,15 @@ class ApplicationController < ActionController::Base
   def set_locale
     if defined?(params) && params[:locale]
       I18n.locale = params[:locale]
-    elsif current_user && current_user.language_id.present?
-      I18n.locale = current_user.language.code
-    elsif defined?(request)
-      I18n.locale = extract_locale_from_accept_language_header
     end
-    
+    # if defined?(params) && params[:locale]
+    #   I18n.locale = params[:locale]
+    # elsif current_user && current_user.language_id.present?
+    #   I18n.locale = current_user.language.code
+    # elsif defined?(request)
+    #   I18n.locale = extract_locale_from_accept_language_header
+    # end
+    # I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
   end
 
   def default_url_options
