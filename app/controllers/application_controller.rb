@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include HttpAcceptLanguage::AutoLocale
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  before_filter :set_locale
+  before_action :set_locale
 
   def set_locale
     if defined?(params) && params[:locale]

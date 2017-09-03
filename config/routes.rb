@@ -6,12 +6,11 @@ Rails.application.routes.draw do
     resources :monuments
     resources :towns
     root 'pages#index'
-
-    # API+API Documentation
-    mount Api::Sap::Api, at: "/api"
-    mount GrapeSwaggerRails::Engine, at: "api/documentation"
     if Rails.env.development?
       mount Localtower::Engine, at: "localtower"
     end
   end
+  # API+API Documentation
+  mount Api::Sap::Api, at: "/api"
+  mount GrapeSwaggerRails::Engine, at: "api/documentation"
 end
