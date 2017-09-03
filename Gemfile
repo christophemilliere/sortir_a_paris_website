@@ -85,6 +85,7 @@ group :development do
   gem 'rubocop-rspec', require: false # https://github.com/nevir/rubocop-rspec
   gem 'annotate'  # Model schema annotation - https://github.com/ctran/annotate_models
   gem "localtower"
+  gem 'capistrano-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
